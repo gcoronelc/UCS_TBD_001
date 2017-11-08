@@ -1,0 +1,30 @@
+- Base de Datos NO-SQL
+
+
+- Alta Disponibilidad de Base de Datos
+  Santisteban, Villon
+
+
+- Data Warehouse
+
+
+- Minería de Datos
+  Aldave, Balaguer, CCallo
+
+
+- Intenigencia de Negocios
+  Bada, Villanueva, Acosta
+
+
+- Microsoft PowerPivot
+  Sarmiento, Zambrano, Carla Castillo
+
+
+- XML en las Bases de Datos
+
+
+- JSON en las Bases de Datos
+
+
+
+
