@@ -1,23 +1,27 @@
-- Base de Datos NO-SQL
+- Datomic
 
+
+- Base de Datos NO-SQL
+  Azañero
 
 - Alta Disponibilidad de Base de Datos
-  Santisteban, Villon
-
-
+  Castillo Castillo
+  
+ 
 - Data Warehouse
-
+  Mayorga
+  
 
 - Minería de Datos
-  Aldave, Balaguer, CCallo
+  Medina y Arias
+  
 
-
-- Intenigencia de Negocios
-  Bada, Villanueva, Acosta
-
+- Inteligencia de Negocios
+  Castillo Yarleque
+  
 
 - Microsoft PowerPivot
-  Sarmiento, Zambrano, Carla Castillo
+  Villanueva
 
 
 - XML en las Bases de Datos
