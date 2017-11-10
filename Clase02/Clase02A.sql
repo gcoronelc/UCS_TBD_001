@@ -44,8 +44,31 @@ DE           PARA       MSG
 ------------ ---------- ---------------------------
 gustavo      aula       Como van con Oracle?
 
+commit;
+
 
 4.- Conexión remota
+
+sqlplus demo/demo@172.33.2.105:1521/NUEVO
+
+connect demo/demo@172.33.2.105:1521/NUEVO
+
+
+Se verifica el funcionamiento de la
+conexión remota.
+
+5.- Bloqueos masivos
+
+Todos ejecutar la siguiente consulta
+
+update mensaje 
+set para = 'PERU',
+msg = 'RUMBO AL MUNDIAL';
+
+
+
+
+
 
 
 
