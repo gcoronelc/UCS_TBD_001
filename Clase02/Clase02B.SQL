@@ -1,45 +1,18 @@
-ESQUEMA SCOTT
-=================================
-
-1.- Verificar esquema
-
-connect / as sysdba
-
-select username from all_users
-where username like 'S%';
-
-
-
+esquema scott
+1-verificar esquema 
+connect as sysdba
 SQL> select username from all_users
-  2  where username like 'S%';
+2 where username like "$%";
 
 USERNAME
-------------------------------
 SYS
 SYSTEM
 SI_INFORMTN_SCHEMA
-SPATIAL_WFS_ADMIN_USR
-SPATIAL_CSW_ADMIN_USR
-SYSMAN
-SCOTT
-
-7 rows selected.
 
 
-2.- Modificar cuenta
+esquema hr
+1- verificar si existe el usuario
+connect /  as sysdba
 
-alter user scott
-identified by tiger
-account unlock;
-
-
-SQL> connect scott/tiger
-Connected.
-SQL> select * from cat;
-
-TABLE_NAME                     TABLE_TYPE
------------------------------- -----------
-BONUS                          TABLE
-DEPT                           TABLE
-EMP                            TABLE
-SALGRADE                       TABLE
+select username from all_users
+where username like "$%"
