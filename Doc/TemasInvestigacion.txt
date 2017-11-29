@@ -1,35 +1,38 @@
-- Datomic
-
-
-- Base de Datos NO-SQL
+- Grupo 01: Base de Datos NO-SQL
   Azañero
 
-- Alta Disponibilidad de Base de Datos
+- Grupo 02: Alta Disponibilidad de Base de Datos
   Castillo Castillo
   
  
-- Data Warehouse
+- Grupo 03: Data Warehouse
   Mayorga
   
 
-- Minería de Datos
+- Grupo 04: Minería de Datos
   Medina y Arias
   
 
-- Inteligencia de Negocios
+- Grupo 05: Inteligencia de Negocios
   Castillo Yarleque
   
 
-- Microsoft PowerPivot
+- Grupo 06: Microsoft PowerPivot
   Villanueva
 
 
-- XML en las Bases de Datos
+- Grupo 07: XML en las Bases de Datos
   Dueñas
   
+
+
+
+
 
 - JSON en las Bases de Datos
 
 
 
+
+- Datomic
 
