@@ -1,0 +1,39 @@
+/*
+Desarrollar una consulta que
+muestre la planilla por 
+departamento.
+
+El formato es el siguiente:
+
+COD-DEP   NOM-DEP    EMPS   PLANILLA    TOTAL      PORCENTAJE
+--------------------------------------------------------------
+100       Aaaaaa       10   45,000.0    100,000,0  45.0 
+101       Bbbbbb       15   55,000.0    100,000,0  55.0 
+*/
+
+
+WITH 
+V_TOTAL AS(
+  SELECT SUM(SALARY * (1 + NVL(COMMISSION_PCT,0))) TOTAL
+  FROM HR.EMPLOYEES
+  WHERE DEPARTMENT_ID IS NOT NULL
+),
+V_RESUMEN AS(
+  SELECT DEPARTMENT_ID DPTO, COUNT(1) EMPS,
+    SUM(SALARY * (1 + NVL(COMMISSION_PCT,0))) PLANILLA
+  FROM HR.EMPLOYEES
+  WHERE DEPARTMENT_ID IS NOT NULL
+  GROUP BY DEPARTMENT_ID
+)
+SELECT 
+  D.DEPARTMENT_ID, D.DEPARTMENT_NAME, R.EMPS,
+  R.PLANILLA, T.TOTAL,
+  (R.PLANILLA/T.TOTAL) * 100 AS TOTAL
+FROM HR.DEPARTMENTS D
+JOIN V_RESUMEN R ON D.DEPARTMENT_ID = R.DPTO
+CROSS JOIN V_TOTAL T;
+
+
+
+
+
