@@ -1,0 +1,91 @@
+-- -----------------------------------
+-- TALLER DE BASE DE DATOS
+-- EVALUACIÓN:   PRACTICA 01
+-- FECHA:        23-NOV-2017
+-- ESTUDIANTE 1: ARIAS NICOLAS ZAMIR OMAR
+-- ESTUDIANTE 2: MEDINA ANCHITA JAIME 
+-- -----------------------------------
+
+
+-- -----------------------------------
+-- ENVIO DE LA SOLUCION
+-- -----------------------------------
+-- CORREO: egcc.ucs@gmail.com
+-- FECHA:  23-NOV-2017
+-- HORA:   Hasta las 9:30 pm
+-- ASUNTO: UCS TBD Practica 01
+-- -----------------------------------
+
+
+-- -----------------------------------
+-- Pregunta 01
+-- -----------------------------------
+
+
+SELECT  CUR_ID, CUR_NOMBRE, ALU_ID, ALU_NOMBRE FROM EDUCA.CURSO, EDUCA.ALUMNO;
+
+-- -----------------------------------
+-- Pregunta 02
+-- -----------------------------------
+SELECT CURSO.CUR_NOMBRE ,  COUNT(MATRICULA.ALU_ID) , SUM(MATRICULA.MAT_PRECIO) , SUM(PAGO.PAG_IMPORTE) AS "IMPORTE RECAUDADO", (SUM(MATRICULA.MAT_PRECIO)-SUM(PAGO.PAG_IMPORTE)) AS "IMPORTE PENDIENTE"
+    FROM CURSO , ALUMNO, MATRICULA, PAGO 
+    WHERE CURSO.CUR_ID= MATRICULA.CUR_ID 
+    AND  ALUMNO.ALU_ID = MATRICULA.ALU_ID 
+    AND  CURSO.CUR_ID= PAGO.CUR_ID 
+    AND ALUMNO.ALU_ID = PAGO.ALU_ID
+    GROUP BY CURSO.CUR_NOMBRE;
+
+
+
+-- -----------------------------------
+-- Pregunta 03
+-- -----------------------------------
+
+
+
+
+-- -----------------------------------
+-- Pregunta 04
+-- -----------------------------------
+SELECT LOCATIONS.CITY , COUNT(EMPLOYEES.EMPLOYEE_ID) 
+FROM HR.EMPLOYEES , HR.DEPARTMENTS , HR.LOCATIONS
+WHERE HR.EMPLOYEES.DEPARTMENT_ID = HR.DEPARTMENTS.DEPARTMENT_ID  
+AND   HR.DEPARTMENTS.LOCATION_ID = HR.LOCATIONS.LOCATION_ID 
+GROUP BY LOCATIONS.CITY; 
+
+
+
+
+-- -----------------------------------
+-- Pregunta 05
+-- -----------------------------------
+
+SELECT  JOB_ID, COUNT(*)
+FROM HR.EMPLOYEES 
+GROUP BY  JOB_ID 
+HAVING COUNT(*)>2;    
+
+
+-- -----------------------------------
+-- Pregunta 06
+-- -----------------------------------
+
+SELECT EMPLOYEES.DEPARTMENT_ID AS "DPTONRO",   EMPLOYEES.FIRST_NAME || ' ' || EMPLOYEES.LAST_NAME AS "EMPLEADO",
+       (CASE WHEN EMPLOYEES.COMMISSION_PCT IS NULL THEN
+            EMPLOYEES.SALARY
+        WHEN EMPLOYEES.COMMISSION_PCT = 0 THEN
+            EMPLOYEES.SALARY
+         WHEN EMPLOYEES.COMMISSION_PCT IS NOT NULL THEN
+            EMPLOYEES.SALARY
+       END) AS "PLANILLA SIN COMISION",
+       (CASE
+        WHEN EMPLOYEES.COMMISSION_PCT IS NULL THEN
+            EMPLOYEES.SALARY
+        WHEN EMPLOYEES.COMMISSION_PCT = 0 THEN
+            EMPLOYEES.SALARY
+        WHEN EMPLOYEES.COMMISSION_PCT > 0 THEN
+            (EMPLOYEES.SALARY*EMPLOYEES.COMMISSION_PCT)+EMPLOYEES.SALARY
+       END) AS "PLANILLA CON COMISION"
+       FROM HR.EMPLOYEES , HR.DEPARTMENTS  WHERE EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID  GROUP BY EMPLOYEES.DEPARTMENT_ID, EMPLOYEES.FIRST_NAME, EMPLOYEES.LAST_NAME,EMPLOYEES.COMMISSION_PCT,EMPLOYEES.SALARY;
+
+
