@@ -16,12 +16,21 @@
 -- ASUNTO: UCS TBD Practica 01
 -- -----------------------------------
 
+CREATE OR REPLACE FUNCTION fnSalarioPromedio(iddepartamento number)
+return number
+is
+result number;
+begin
+select avg(sueldo + comision) into result from EMPLEADO where iddepartamento = iddepartamento;
+return (result);
+end;
+
 
 -- -----------------------------------
 -- Pregunta 01
 -- -----------------------------------
 
-
+SELECT IDDEPARTAMENTO, round(AVG(fnSalarioPromedios(sueldo)),2) as PROMEDIO FROM EMPLEADO GROUP BY IDDEPARTAMENTO;
 
 -- -----------------------------------
 -- Pregunta 02
